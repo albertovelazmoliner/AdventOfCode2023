@@ -8,10 +8,9 @@ fun main() {
 
     fun part1(input: List<String>): Int {
         var totalSum = 0
-        val rows = input.size - 1
         val numbers = mutableListOf<Pair<Int, MutableList<Pair<Int,Int>>>>()
         val symbols = mutableListOf<Pair<Int, Int>>()
-        for (i in 0..rows) {
+        for (i in input.indices) {
             val row = input[i]
             var number = ""
             var numberPositions = mutableListOf<Pair<Int, Int>>()
@@ -56,10 +55,9 @@ fun main() {
     fun part2(input: List<String>): Int {
         var engineSchematic = 0
         val gears = mutableMapOf<Pair<Int, Int>, MutableList<Int>>()
-        val rows = input.size - 1
         val numbers = mutableListOf<Pair<Int, MutableList<Pair<Int,Int>>>>()
         val symbols = mutableListOf<Pair<Int, Int>>()
-        for (i in 0..rows) {
+        for (i in input.indices) {
             val row = input[i]
             var number = ""
             var numberPositions = mutableListOf<Pair<Int, Int>>()
@@ -83,7 +81,6 @@ fun main() {
                 if (row[j] == "*".single() && !row[j].isDigit()) {
                     symbols.add(Pair(i, j))
                 }
-
             }
         }
 
