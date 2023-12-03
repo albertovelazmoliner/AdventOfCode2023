@@ -32,7 +32,6 @@ fun main() {
         return idSum
     }
 
-
     fun part2(input: List<String>): Int {
         var powerSum = 0
         for (text in input) {
