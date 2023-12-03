@@ -103,10 +103,9 @@ fun main() {
     val testInput = readInput("TestDay3")
 
     val result = part1(testInput)
-    print("result => ")
-    println(result)
+    println("result => $result")
 
     val result2 = part2(testInput)
-    print("result part2 => ")
-    println(result2)
+    println("result part2 => $result2")
+
 }
