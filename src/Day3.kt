@@ -3,6 +3,9 @@ import kotlin.math.sqrt
 
 fun main() {
 
+    fun distanceBetweenPoints(symbol: Pair<Int, Int>, position: Pair<Int, Int>) =
+        sqrt((symbol.first - position.first).toDouble().pow(2) + (symbol.second - position.second).toDouble().pow(2))
+
     fun part1(input: List<String>): Int {
         var totalSum = 0
         val rows = input.size - 1
@@ -39,7 +42,7 @@ fun main() {
         for (symbol in symbols) {
             for (number in numbers) {
                 for (position in number.second) {
-                    val distance = sqrt((symbol.first - position.first).toDouble().pow(2) + (symbol.second - position.second).toDouble().pow(2))
+                    val distance = distanceBetweenPoints(symbol, position)
                     if (distance<2) {
                         totalSum += number.first
                         break
@@ -87,8 +90,8 @@ fun main() {
         for (symbol in symbols) {
             for (number in numbers) {
                 for (position in number.second) {
-                    val distance = sqrt((symbol.first - position.first).toDouble().pow(2) + (symbol.second - position.second).toDouble().pow(2))
-                    if (distance<2) {
+                    val distance = distanceBetweenPoints(symbol, position)
+                    if (distance < 2) {
                         if (gears.containsKey(Pair(symbol.first, symbol.second))) {
                             gears[Pair(symbol.first, symbol.second)]?.add(number.first)
                         } else {
@@ -99,7 +102,6 @@ fun main() {
                 }
             }
         }
-        println(gears)
         for (gear in gears) {
             if (gear.value.size == 2) {
                 engineSchematic += gear.value[0] * gear.value[1]
