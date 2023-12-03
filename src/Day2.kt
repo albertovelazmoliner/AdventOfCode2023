@@ -38,7 +38,6 @@ fun main() {
         for (text in input) {
             val games = text.split(":")[1].split("; ")
             val powerMap = mutableMapOf<String, Int>()
-            var powerResult = 0
             for (game in games) {
                 val gameCubesSets = game.split(", ")
                 for (gameCubesSet in gameCubesSets) {
@@ -53,18 +52,14 @@ fun main() {
                     }
                 }
             }
-            powerMap.values.toList().forEach {
-                if (powerResult == 0) {
-                    powerResult = it
-                } else {
-                    powerResult *= it
-                }
+
+            powerSum = powerMap.values.toList().reduce {
+                    power, element -> power * element
             }
-            powerSum += powerResult
         }
         return powerSum
     }
-    
+
     val testInput = readInput("Test1Day2")
 
     val result = part1(testInput)
