@@ -41,14 +41,14 @@ fun main() {
             for (game in games) {
                 val gameCubesSets = game.split(", ")
                 for (gameCubesSet in gameCubesSets) {
-                    val dataSet = gameCubesSet.trim().split(" ")
-                    val colorLimit = dataSet[1]
+                    val value = gameCubesSet.trim().split(" ")[0].toInt()
+                    val colorLimit = gameCubesSet.trim().split(" ")[1]
                     if (powerMap.containsKey(colorLimit)) {
-                        if (dataSet[0].toInt() > powerMap[colorLimit]!!) {
-                            powerMap[colorLimit] = dataSet[0].toInt()
+                        if (value > powerMap[colorLimit]!!) {
+                            powerMap[colorLimit] = value
                         }
                     } else {
-                        powerMap[colorLimit] = dataSet[0].toInt()
+                        powerMap[colorLimit] = value
                     }
                 }
             }
