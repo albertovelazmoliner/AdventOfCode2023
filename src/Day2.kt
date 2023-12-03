@@ -52,8 +52,7 @@ fun main() {
                     }
                 }
             }
-
-            powerSum = powerMap.values.toList().reduce {
+            powerSum += powerMap.values.toList().reduce {
                     power, element -> power * element
             }
         }
