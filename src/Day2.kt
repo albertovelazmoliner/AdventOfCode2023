@@ -58,7 +58,7 @@ fun main() {
         return powerSum
     }
 
-    val testInput = readInput("Test1Day2")
+    val testInput = readInput("TestDay2")
 
     val result = part1(testInput)
     print("result => ")

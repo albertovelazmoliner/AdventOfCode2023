@@ -43,7 +43,7 @@ fun main() {
         return calibrationSum
     }
 
-    val testInput = readInput("Test1Day1")
+    val testInput = readInput("TestDay1")
 
     val result = part1(testInput)
     print("result => ")
