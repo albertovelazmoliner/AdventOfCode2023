@@ -24,17 +24,13 @@ fun main() {
                         numberPositions = mutableListOf()
                     }
                 } else {
+                    if (row[j] != ".".single()) symbols.add(Pair(i, j))
                     if (number.isNotEmpty()) {
                         numbers.add(Pair(number.toInt(), numberPositions))
                         number = ""
                         numberPositions = mutableListOf()
                     }
                 }
-
-                if (row[j] != ".".single() && !row[j].isDigit()) {
-                    symbols.add(Pair(i, j))
-                }
-
             }
         }
 
@@ -71,15 +67,12 @@ fun main() {
                         numberPositions = mutableListOf()
                     }
                 } else {
+                    if (row[j] == "*".single()) symbols.add(Pair(i, j))
                     if (number.isNotEmpty()) {
                         numbers.add(Pair(number.toInt(), numberPositions))
                         number = ""
                         numberPositions = mutableListOf()
                     }
-                }
-
-                if (row[j] == "*".single() && !row[j].isDigit()) {
-                    symbols.add(Pair(i, j))
                 }
             }
         }
