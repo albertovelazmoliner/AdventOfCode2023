@@ -38,7 +38,7 @@ fun main() {
             for (number in numbers) {
                 for (position in number.second) {
                     val distance = distanceBetweenPoints(symbol, position)
-                    if (distance<2) {
+                    if (distance < 2) {
                         totalSum += number.first
                         break
                     }
@@ -107,5 +107,4 @@ fun main() {
 
     val result2 = part2(testInput)
     println("result part2 => $result2")
-
 }
