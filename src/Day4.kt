@@ -1,4 +1,5 @@
 import kotlin.math.pow
+import kotlin.system.measureTimeMillis
 
 fun main() {
 
@@ -18,29 +19,24 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        val mapOfCards = mutableMapOf<String, Int>()
+        val collectionOfCards = MutableList(input.size) { 0 }
         for (card in input.indices) {
-            if (mapOfCards.containsKey("$card")) mapOfCards["$card"] = mapOfCards["$card"]!! + 1
-            else mapOfCards["$card"] = 1
+            collectionOfCards[card] = collectionOfCards[card] + 1
             val winningNumbers = input[card].replace("   ", " ").replace("  ", " ")
                 .split(": ")[1].split(" | ")[0].split(" ")
             val numbers = input[card].split(": ")[1].split(" | ")[1].replace("  ", " ")
                 .split(" ")
-            for (i in 0 until mapOfCards["$card"]!!) {
+            for (i in 0 until collectionOfCards[card]) {
                 var hasWinningNumber = 0
                 numbers.forEach() {
                     if (winningNumbers.contains(it)) {
                         hasWinningNumber++
-                        if (mapOfCards.containsKey("${card + hasWinningNumber}")) {
-                            mapOfCards["${card + hasWinningNumber}"] = mapOfCards["${card + hasWinningNumber}"]!! + 1
-                        } else {
-                            mapOfCards["${card + hasWinningNumber}"] = 1
-                        }
+                        collectionOfCards[card + hasWinningNumber] = collectionOfCards[card + hasWinningNumber] + 1
                     }
                 }
             }
         }
-        return mapOfCards.values.sum()
+        return collectionOfCards.sum()
     }
 
     val testInput = readInput("TestDay4")
@@ -50,5 +46,4 @@ fun main() {
 
     val result2 = part2(testInput)
     println("result part2 => $result2")
-
 }
